@@ -1,0 +1,41 @@
+[project]
+name = "habithamster-ml"
+version = "0.1.0"
+description = "Standalone HabitHamster recommendation engine"
+authors = [{name = "Gogita Mandzulashvili"}]
+requires-python = ">=3.12,<3.13"
+dynamic = ["dependencies"]
+
+[tool.poetry]
+packages = [{include = "habithamster_ml", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+numpy = "2.2.6"
+pandas = "2.2.3"
+scikit-learn = "1.6.1"
+lightgbm = "4.6.0"
+joblib = "1.4.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "0.11.13"
+pytest = "8.3.5"
+pre-commit = "4.2.0"
+
+[project.scripts]
+habit-ml = "habithamster_ml.cli:main"
+
+[build-system]
+requires = ["poetry-core==2.2.1"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 79
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
