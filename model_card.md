@@ -1,6 +1,6 @@
 # Model Card: HabitHamster HybridRecommender
 
-ДЗ2 — описание модели и её роли в проекте. Автор индивидуальной работы:
+Второй этап — описание модели и её роли в проекте. Автор индивидуальной работы:
 Мандзулашвили Гогита Гогитович. Дата документа: 01.11.2026.
 
 Структура соответствует разделам Google «Model Cards for Model Reporting»:
@@ -172,9 +172,9 @@ commit; для реальной выгрузки потребуются иден
 
 Инженерные тесты не заменяют оценку качества. Для локального pytest из каталога
 `ml` использована отдельная временная папка
-`--basetemp=artifacts/pytest-dz2-final`: системная временная папка была недоступна.
-Демо вызвано через `python -c "from habithamster_ml.cli import main; main()" demo
---model artifacts/dz2-demo.joblib`, то есть через ту же функцию CLI.
+внутри `ml/artifacts`: системная временная папка была недоступна.
+Демо вызвано через функцию `habithamster_ml.cli.main` с командой `demo`
+и сохранением артефакта в `ml/artifacts`, то есть через ту же функцию CLI.
 
 ## 8. Ethical Considerations — этика и риски
 
@@ -216,7 +216,7 @@ commit; для реальной выгрузки потребуются иден
 ```powershell
 poetry -C ml sync --with dev
 poetry -C ml run pytest tests
-poetry -C ml run habit-ml demo --model artifacts/dz2-demo.joblib
+poetry -C ml run habit-ml demo --model artifacts/stage2-demo.joblib
 ```
 
 Артефакт демо не является production-релизом. Проверки описаны в
