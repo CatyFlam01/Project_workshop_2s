@@ -40,3 +40,11 @@ backend/media/
 backend/ml_models
 
 celerybeat-schedule
+# Standalone ML environment and generated artifacts
+ml/.venv/
+ml/artifacts/
+ml/.pytest_cache/
+ml/.ruff_cache/
+__pycache__/
+*.pyc
+ml/dist/

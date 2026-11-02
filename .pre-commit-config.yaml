@@ -1,0 +1,21 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ml-lint
+        name: ML Ruff lint
+        entry: poetry -C ml run ruff check src tests
+        language: system
+        pass_filenames: false
+        files: ^ml/.*\.py$
+      - id: ml-format
+        name: ML Ruff format
+        entry: poetry -C ml run ruff format --check src tests
+        language: system
+        pass_filenames: false
+        files: ^ml/.*\.py$
+      - id: ml-tests
+        name: ML tests
+        entry: poetry -C ml run pytest tests
+        language: system
+        pass_filenames: false
+        always_run: true
